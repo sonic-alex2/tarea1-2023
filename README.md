@@ -1,19 +1,27 @@
 # Tarea #1 Analisis de sistemas - 2023
+<p align="left">
+   <img src="https://img.shields.io/badge/STATUS-EN%20DESAROLLO-green">
+</p>
+
+![GitHub Org's stars](https://img.shields.io/github/stars/sonic-alex2?style=social)
+
+![foto de cabecera](https://cdn.pixabay.com/photo/2017/03/18/01/07/willow-catkin-2152984_960_720.jpg)
+
 
 ## Para correr el proyecto localmente
 
 ```php
-Se debe de tenr instalado php, y mysql (se asume que el usuario mysql es root y esta sin contraseña)
+#Se debe de tener instalado php, y mysql
+#(se asume que el usuario mysql es root y esta sin contraseña)
+#si no editar los siguiente datos (en el archivo):
+DB_DATABASE=nombreDeBaseDeDatosQueCreaste
+DB_USERNAME=usurioCreado
+DB_PASSWORD=passwordCreado
 
-si no editar el apartado (en el archivo):
-DB_DATABASE=nombredebasededatos
-DB_USERNAME=user
-DB_PASSWORD=password
+#lo anterior en mi maquina local
 
-# Crear un archivo ".env"
-
-y pegar los siguiente:
-
+#Crear un archivo con extencion ".env"
+#Pegar los siguiente, en el archivo creado:
 APP_NAME=tarea-numeros-primo
 APP_ENV=local
 APP_KEY=base64:MdrqU37Vj3ecZYpSZaT1cATxgVHcE+mqZq2PLrUmwYU=
@@ -73,7 +81,25 @@ VITE_PUSHER_PORT="${PUSHER_PORT}"
 VITE_PUSHER_SCHEME="${PUSHER_SCHEME}"
 VITE_PUSHER_APP_CLUSTER="${PUSHER_APP_CLUSTER}"
 
-Por ultimo Correr (se debe de tener como variable global en windows php):
+#Por ultimo Correr el siguiente comando (se debe de tener como variable global en windows "php"):
+#se debe de correr el comando en la misma ubicacion que la raiz del todo el proyecto.
+
+# --> crea las tablas necesarias(si ya esta creada la base de datos y con los accesos correctos, con los servidor mysql funcionando)
+$ php artisan migrate:fresh
+
+#pone en ejecucion la aplicacion.
 $ php artisan serve
 
+#saldra un mensaje similar al siguiente:
+ INFO  Server running on [http://127.0.0.1:8000].
+
+#Crear un usario en el apartado "Register" (o similar)
+http://127.0.0.1:8000/register
+
 ```
+
+
+## Autores
+
+| [<img src="#" width=115><br><sub>Jorge Ramos</sub>](https://github.com/sonic-alex2) |  [<img src="#" width=115><br><sub>Otro User</sub>]([https://github.com/sonic-alex2](https://github.com/ellenpimentel)) |  [<img src="#" width=115><br><sub>Otro user</sub>](https://github.com/sonic-alex2) |
+| :---: | :---: | :---: |

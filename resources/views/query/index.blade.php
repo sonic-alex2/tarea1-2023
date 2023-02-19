@@ -1,13 +1,15 @@
+@extends('layouts.app')
 
+@section('content')
     <div class="container-fluid">
         <div class="row">
             <div class="col-sm-12">
                 <div class="card">
                     <div class="card-header">
 
-<a href="{{ route('queries.index') }}">
-    Consultar un Numero Primo
-</a></br>
+                        <a href="{{ route('queries.index') }}">
+                            Consultar un Numero Primo
+                        </a></br>
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
@@ -69,4 +71,4 @@
             </div>
         </div>
     </div>
-
+@stop

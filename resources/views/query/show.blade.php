@@ -1,4 +1,6 @@
+@extends('layouts.app')
 
+@section('content')
 <a href="{{ route('queries.index') }}">
     Consultar un Numero Primo
 </a></br>
@@ -32,4 +34,4 @@
             </div>
         </div>
     </section>
-
+@stop
