@@ -7,7 +7,6 @@
             {!! $errors->first('numero', '<div class="invalid-feedback">:message</div>') !!}
         </div>
         <div class="form-group">
-            {{ Form::label('user_id') }}
             {{ Form::text('user_id', $query->user_id ?? auth()->user()->id, ['class' => 'form-control' . ($errors->has('user_id') ? ' is-invalid' : ''), 'placeholder' => 'User Id'
                                                 ,'hidden' => true]) }}
             {!! $errors->first('user_id', '<div class="invalid-feedback">:message</div>') !!}

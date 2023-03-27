@@ -8,7 +8,7 @@ use App\Models\User;
 use Illuminate\Http\Request;
 use Symfony\Component\HttpFoundation\Response;
 use Symfony\Component\HttpFoundation\ResponseHeaderBag;
-
+use Illuminate\Support\Facades\Auth;
 /**
  * Class QueryController
  * @package App\Http\Controllers
@@ -22,7 +22,7 @@ class QueryController extends Controller
      */
     public function index()
     {
-        $queries = Query::with('user')->paginate();
+        $queries = Query::with('user')->where('user_id','=',Auth::user()->id)->paginate();
 
         return view('query.index', compact('queries'))
             ->with('i', (request()->input('page', 1) - 1) * $queries->perPage());
@@ -49,23 +49,31 @@ class QueryController extends Controller
     {
         request()->validate(Query::$rules);
 
-        $query = Query::create($request->all());
+        //$query = Query::create($request->all());
 
-        $num = $query->numero;
+        $num = $request->numero;
 
         $maxPrimeNumbers = 50;
         $now = 1;
         $suma = 0;
+        $primos = "";
 
         for ( $i=1; $i<= $num; $i++ ) {
             if ($this->is_prime($i)) {
-                echo $i . ",";
+                $primos .= $i . ",";
                 $suma += $i;
                 $now++;
             }
             if ( $now > $maxPrimeNumbers ) break;
         }
-        return "</br> Suma = $suma";
+
+        $query = Query::create([
+            'numero' => $request->numero,
+            'primos' => $primos,
+            'suma' => $suma,
+            'user_id' => Auth::user()->id,
+        ]);
+        //return "</br> Suma = $suma";
 
         return redirect()->route('queries.index')
             ->with('success', 'Query created successfully.');

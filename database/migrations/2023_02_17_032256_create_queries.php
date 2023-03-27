@@ -14,6 +14,9 @@ return new class extends Migration
         Schema::create('queries', function (Blueprint $table) {
             $table->id();
             $table->integer('numero');
+            $table->string('primos');
+
+            $table->integer('suma');
             $table->unsignedBigInteger('user_id');
             $table->foreign('user_id')->references('id')->on('users')->onUpdate('cascade');
             $table->timestamps();

@@ -13,7 +13,7 @@
                         <div style="display: flex; justify-content: space-between; align-items: center;">
 
                             <span id="card_title">
-                                {{ __('Query') }}
+                                {{ __('Listado de consultas') }}
                             </span>
 
                              <div class="float-right">
@@ -37,8 +37,10 @@
                                         <th>No</th>
 
 										<th>Numero</th>
-										<th>User Id</th>
-
+										<th>Primos</th>
+                                        <th>Suma</th>
+                                        <th>Fecha Consulta</th>
+										<th>User</th>
                                         <th></th>
                                     </tr>
                                 </thead>
@@ -48,6 +50,9 @@
                                             <td>{{ ++$i }}</td>
 
 											<td>{{ $query->numero }}</td>
+                                            <td>{{ $query->primos }}</td>
+                                            <td>{{ $query->suma }}</td>
+                                            <td>{{ $query->created_at }}</td>
 											<td>{{ $query->user->name }}</td>
 
                                             <td>

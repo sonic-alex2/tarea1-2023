@@ -22,7 +22,7 @@ class Query extends Model
 {
 
     static $rules = [
-		'numero' => 'required',
+		'numero' => 'required|numeric|min:1|max:99999999',
 		'user_id' => 'required',
     ];
 
@@ -33,7 +33,7 @@ class Query extends Model
      *
      * @var array
      */
-    protected $fillable = ['numero','user_id'];
+    protected $fillable = ['numero','user_id','suma','primos'];
 
 
     /**
